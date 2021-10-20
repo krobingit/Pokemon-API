@@ -1,0 +1,144 @@
+:root{
+    font-size:10px;
+}
+body{
+
+    background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/i/813b6b5a-d48f-4d22-aa23-bb84ac52ccb6/d5c6eql-10a04956-ab30-463f-88a6-27afa9f85eb9.jpg");
+background-position: left right;
+background-size: contain;
+
+}
+
+#header-row>*{
+    margin-top: 2rem;
+
+}
+
+.pokpic{
+    object-fit: cover;
+
+    height:22.5rem;
+
+}
+.title{
+
+font-size:4rem;
+text-align: center;
+color: yellow;
+letter-spacing: 5px;
+font-family: 'Otomanopee One', sans-serif;
+position: relative;
+
+}
+
+.title:after {
+    content: " ";
+    display: block;
+    border-bottom: 1px solid #c50000;
+    border-top: 1px solid #c50000;
+    height: 5px;
+  background-color:#f8f8f8;
+margin-top:2rem;
+
+}
+
+
+.gg-pokemon {
+    box-sizing: border-box;
+    position: absolute;
+    left:30rem;
+    display: block;
+    width: 18px;
+    height: 18px;
+    border: 5px solid transparent;
+    box-shadow:
+        0 0 0 2px,
+        inset 0 0 0 2px;
+    border-radius: 100%;
+    color:yellow;
+
+}
+#pokemon-content{
+    margin-top: 5rem;
+    color:white;
+  font-family: 'Righteous', cursive;
+    gap:10.5rem;
+}
+#pokemon-content>*{
+    margin:1rem;
+margin-left: 0;
+    font-size:2rem;
+}
+.pokemon-name{
+    font-size:3.2rem;
+    color: #F433FF;
+    font-family: 'Otomanopee One', sans-serif;
+    letter-spacing: 3px;
+    text-align: center;
+}
+.about-heading{
+    font-size:2.5rem;
+    color: rgb(153, 9, 38);
+    font-family: 'Otomanopee One', sans-serif;
+    letter-spacing:3px;
+    font-weight: bold;
+}
+.about-pokemon-container{
+background: rgba( 224, 61, 88, 0.25 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 0px );
+-webkit-backdrop-filter: blur( 0px );
+border-radius: 10px;
+border: 1px solid rgba(202, 185, 185, 0.18);
+text-align: left;
+padding: 2rem;
+transition:all 0.5s ease-in-out;
+cursor: pointer;
+margin:1rem;
+min-width:30rem;
+word-spacing: 2rem;
+
+}
+.pokemon-img-container:hover{
+transform: scale(1.5);
+}
+.about-pokemon-container:active{
+transform: scale(1.2) ;}
+
+.pokemon-img-container{
+transition:all 0.6s ease-in-out;
+display: flex;
+justify-content: center;
+}
+
+.input-container{
+	position:relative;
+	margin-bottom:25px;
+}
+.input-container>*{
+margin-bottom: 2rem;}
+
+.input-container label{
+	font-size:16px;
+	color:#fff;
+font-family: 'Otomanopee One', sans-serif;
+color:yellow;
+letter-spacing: 3px;
+}
+.input-container input{
+  border:0;
+  border-bottom:1px solid #555;
+  background:transparent;
+  width:100%;
+  padding:8px 0 5px 0;
+  font-size:16px;
+ color: #F433FF;
+font-family: 'Otomanopee One', sans-serif;
+letter-spacing: 3px;
+
+}
+.input-container input:focus{
+ border:none;
+ outline:none;
+ border-bottom:1px solid yellow;
+}
