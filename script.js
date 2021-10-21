@@ -84,7 +84,7 @@ async function getData(value) {
 
 getData(61);
 
-const nores = document.createElement("h1");
+const nores = document.createElement("h1"); //creating element to display no-result message
 
 //To fetch a particular search result
 async function showResults(searchres) {
@@ -100,7 +100,6 @@ async function showResults(searchres) {
 
     if (searchres === "")
     {
-
                 nores.innerHTML="No results found."
                 document.getElementById('getDataAgain').append(nores)
     }
@@ -151,7 +150,11 @@ async function showResults(searchres) {
            </div>
             `
             }
-            
+        }
+        if (pokemonNames.includes(lowerCaseSearchRes) === false)
+        {
+             nores.innerHTML="No results found."
+                document.getElementById('getDataAgain').append(nores)
         }
     }
 
