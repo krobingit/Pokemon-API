@@ -92,11 +92,12 @@ async function showResults(searchres) {
         pokemonNames.push(data.name)
     }
     var lowerCaseSearchRes = searchres.toLowerCase();  //lowercasing the input data for fetching purpose
-  document.querySelector("#pokemon-content").innerHTML = ``;
+  
 
     if (searchres === "")
         alert("No results found");
     else {
+        document.querySelector("#pokemon-content").innerHTML = ``;
         for (var i = 0; i < pokemonNames.length; i++) {
             if (pokemonNames[i].includes(lowerCaseSearchRes)) {  /*checking the names against the input given
                                                          if its true,it will get the relevant data*/
