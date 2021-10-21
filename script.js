@@ -142,7 +142,7 @@ async function showResults(searchres) {
                     <br>
                     <p><span class="about-heading">Types:  </span><br>➢${typeArr}</p>
                       <hr>
-                     <p><span class="about-heading">Ability:  </span><br>➢<li>${abilities}</li></p>
+                     <p><span class="about-heading">Ability:  </span><br>➢${abilities}</p>
                       <hr>
                      <p><span class="about-heading">Moves:  </span><br>➢${moveList}</p>
                       <hr>
