@@ -101,7 +101,7 @@ async function showResults(searchres) {
     if (searchres === "")
     {
 
-                nores.innerHTML="No results found.<br>Click the title to start viewing Pokemons again!"
+                nores.innerHTML="No results found."
                 document.getElementById('getDataAgain').append(nores)
     }
 
