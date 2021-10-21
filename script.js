@@ -103,6 +103,11 @@ async function showResults(searchres) {
                 nores.innerHTML="No results found."
                 document.getElementById('getDataAgain').append(nores)
     }
+    if (pokemonNames.every((name) => (name.includes(lowerCaseSearchRes) == false)))
+{
+    nores.innerText="No results found."
+    document.getElementById('getDataAgain').append(nores);
+}
 
     else {
         document.querySelector("#pokemon-content").innerHTML = ``;
