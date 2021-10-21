@@ -31,7 +31,9 @@ font-family: 'Otomanopee One', sans-serif;
 position: relative;
 cursor: pointer;
 }
-
+.title:hover{
+color:crimson;
+}
 .title:after {
     content: " ";
     display: block;
