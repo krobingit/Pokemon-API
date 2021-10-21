@@ -93,15 +93,18 @@ async function showResults(searchres) {
         const data = await response.json();
         pokemonNames.push(data.name)
     }
+    var lowerCaseSearchRes = searchres.toLowerCase();  //lowercasing the input data for fetching purpose
+  document.querySelector("#pokemon-content").innerHTML = ``;
 
     if (searchres === "")
         alert("No results found");
     else {
         for (var i = 0; i < pokemonNames.length; i++) {
-            if (pokemonNames[i].includes(searchres)) {
+            if (pokemonNames[i].includes(lowerCaseSearchRes)) {  /*checking the names against the input given
+                                                         if its true,it will get the relevant data*/
 
-                var lowerCaseName = pokemonNames[i].toLowerCase();
-                const res = await fetch("https://pokeapi.co/api/v2/pokemon/" +lowerCaseName)
+                var pokemonName = pokemonNames[i];
+                const res = await fetch("https://pokeapi.co/api/v2/pokemon/" +pokemonName)
                 const data = await res.json();
 
                 const abilities = data.abilities.map((list) => list.ability.name).join("\t\t\t➢")
@@ -115,9 +118,9 @@ async function showResults(searchres) {
                 var typeArr = data.types.map((data) => data.type.name);
                 typeArr = typeArr.join("\t\t\t➢");
 
-                document.querySelector("#pokemon-content").innerHTML = ``;
 
-                document.querySelector("#pokemon-content").innerHTML = `
+
+                document.querySelector("#pokemon-content").innerHTML += `
         <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
              <div class="pokemon-img-container">
                    <img src="${image}" alt="pokemon-image" class="pokpic">
@@ -138,10 +141,11 @@ async function showResults(searchres) {
                     <p><span class="about-heading">Type: </span><br>➢ ${typeArr}</p>
                   </div>
 
-        </div>
-        `
+           </div>
+            `
             }
         }
     }
+
 
 }
