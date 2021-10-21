@@ -84,6 +84,8 @@ async function getData(value) {
 
 getData(61);
 
+const nores = document.createElement("h1");
+
 //To fetch a particular search result
 async function showResults(searchres) {
     const pokemonNames = [];
@@ -97,7 +99,11 @@ async function showResults(searchres) {
 
 
     if (searchres === "")
-        alert("No results found");
+    {
+
+                nores.innerHTML="No results found.<br>Click the title to start viewing Pokemons again!"
+                document.getElementById('getDataAgain').append(nores)
+    }
 
     else {
         document.querySelector("#pokemon-content").innerHTML = ``;
@@ -146,9 +152,9 @@ async function showResults(searchres) {
             `
             }
             else {
-                const nores = document.createElement("h1");
-                nores.innerHTML="No results found.<br>Click the title to start seeing Pokemons again!"
-                document.getElementById('getDataAgain').append(nores)
+
+                nores.innerHTML="No results found.<br>Click the title to start viewing Pokemons again!"
+                document.getElementById('getDataAgain').append(nores);
                 break;
             }
         }
