@@ -156,6 +156,8 @@ async function showResults(searchres) {
             `
             }
         }
+        if (nores.innerText = "No results found.")
+        nores.innerText = "";
         
     }
 
