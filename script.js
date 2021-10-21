@@ -151,11 +151,7 @@ async function showResults(searchres) {
             `
             }
         }
-        if (pokemonNames.includes(lowerCaseSearchRes) === false)
-        {
-             nores.innerHTML="No results found."
-                document.getElementById('getDataAgain').append(nores)
-        }
+        
     }
 
 
