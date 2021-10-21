@@ -60,7 +60,7 @@ async function getData(value) {
                    <div class="about-pokemon-container">
                     <h1 class="pokemon-name">${titleCase(data.name)}</h1>
                     <br>
-                    <p><span class="about-heading">Type:  </span><br>➢${typeArr}</p>
+                    <p><span class="about-heading">Types:  </span><br>➢${typeArr}</p>
                       <hr>
                      <p><span class="about-heading">Ability:  </span><br>➢${abilities}</p>
                       <hr>
@@ -69,8 +69,6 @@ async function getData(value) {
                      <p><span class="about-heading">Height: </span><br>➢${height}cm</p>
                       <hr>
                     <p><span class="about-heading">Weight: </span><br>➢${weight}Kg</p>
-                       <hr>
-                    <p><span class="about-heading">Types: </span><br>➢${typeArr}</p>
                   </div>
 
         </div>
@@ -128,7 +126,7 @@ async function showResults(searchres) {
                    <div class="about-pokemon-container">
                     <h1 class="pokemon-name">${titleCase(data.name)}</h1>
                     <br>
-                    <p><span class="about-heading">Type:  </span><br>➢${typeArr}</p>
+                    <p><span class="about-heading">Types:  </span><br>➢${typeArr}</p>
                       <hr>
                      <p><span class="about-heading">Ability:  </span><br>➢${abilities}</p>
                       <hr>
@@ -137,8 +135,6 @@ async function showResults(searchres) {
                      <p><span class="about-heading">Height: </span><br>➢ ${height} cm</p>
                       <hr>
                     <p><span class="about-heading">Weight: </span><br>➢ ${weight} kg</p>
-                       <hr>
-                    <p><span class="about-heading">Type: </span><br>➢ ${typeArr}</p>
                   </div>
 
            </div>
