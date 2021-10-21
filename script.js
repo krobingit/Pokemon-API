@@ -151,12 +151,7 @@ async function showResults(searchres) {
            </div>
             `
             }
-            else {
-
-                nores.innerHTML="No results found.<br>Click the title to start viewing Pokemons again!"
-                document.getElementById('getDataAgain').append(nores);
-                break;
-            }
+            
         }
     }
 
