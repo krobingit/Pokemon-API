@@ -29,7 +29,7 @@ color: yellow;
 letter-spacing: 5px;
 font-family: 'Otomanopee One', sans-serif;
 position: relative;
-
+cursor: pointer;
 }
 
 .title:after {
@@ -124,6 +124,7 @@ margin-bottom: 2rem;}
 font-family: 'Otomanopee One', sans-serif;
 color:yellow;
 letter-spacing: 3px;
+cursor: pointer;
 }
 .input-container input{
   border:0;
