@@ -70,7 +70,7 @@ async function getData(value) {
                       <hr>
                     <p><span class="about-heading">Weight: </span><br>➢${weight}Kg</p>
                        <hr>
-                    <p><span class="about-heading">Type: </span><br>➢${typeArr}</p>
+                    <p><span class="about-heading">Types: </span><br>➢${typeArr}</p>
                   </div>
 
         </div>
