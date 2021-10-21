@@ -14,12 +14,13 @@ document.body.innerHTML = `<div class="container">
 
               <input id="search" type="search" placeholder="Enter a name">
 
-            <button id="srchbtn" type="button" onclick="showResults(document.getElementById('search').value)" class="btn btn-outline-warning btn-lg">Search</button>
+            <button id="srchbtn" type="button"
+ onclick="showResults(document.getElementById('search').value)" class="btn btn-outline-warning btn-lg">Search
+</button>
           </div>
 <div id="getDataAgain">
-
-
         </div>
+
     </div>
 </div>
 </div>
@@ -56,7 +57,7 @@ async function getData(value) {
         //Getting all the relevant data necessary from the API and further displaying it on screen
 
         document.querySelector("#pokemon-content").innerHTML += `
-        <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+        <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12" id="pokemon-container">
              <div class="pokemon-img-container">
                    <img src="${image}" alt="pokemon-image" class="pokpic">
              </div>
@@ -67,13 +68,24 @@ async function getData(value) {
                       <hr>
                      <p><span class="about-heading">Ability:  </span><br>➢${abilities}</p>
                       <hr>
-                     <p><span class="about-heading">Moves:  </span><br>➢${moveList}</p>
-                      <hr>
+                    <div id="viewMore">
+                      <button type="button" id="togglebtn" onclick="toggleMore(${id})"
+                   class="btn btn-outline-warning btn-lg togglebtn${id}">View More</button>
+                    </div>
+                    </div>
+                    <div class="toggleDetails${id}" style="display:none">
                      <p><span class="about-heading">Height: </span><br>➢${height}cm</p>
                       <hr>
                     <p><span class="about-heading">Weight: </span><br>➢${weight}Kg</p>
-                  </div>
+                      <hr>
+                     <p><span class="about-heading">Moves:  </span><br>➢${moveList}</p>
+                      <hr>
+
+                     </div>
+
+
         </div>
+
         `
 
 
@@ -84,7 +96,9 @@ async function getData(value) {
 
 getData(61);
 
-const nores = document.createElement("h1"); //creating element to display no-result message
+const nores = document.createElement("h1");   //creating element to display no-result message
+nores.className="noresmsg"
+
 
 //To fetch a particular search result
 async function showResults(searchres) {
@@ -100,20 +114,22 @@ async function showResults(searchres) {
 
     if (searchres === "")
     {
-                nores.innerHTML="No results found."
+                nores.innerText="No results found."
                 document.getElementById('getDataAgain').append(nores)
     }
-    if (pokemonNames.every((name) => (name.includes(lowerCaseSearchRes) == false)))
+
+if (pokemonNames.every((name) => (name.includes(lowerCaseSearchRes) == false)))
 {
     nores.innerText="No results found."
     document.getElementById('getDataAgain').append(nores);
 }
 
     else {
+
         document.querySelector("#pokemon-content").innerHTML = ``;
         for (var i = 0; i < pokemonNames.length; i++) {
             if (pokemonNames[i].includes(lowerCaseSearchRes)) {  /*checking the names against the input given
-                                                         if its true,it will get the relevant data*/
+                                                               if its true,it will get the relevant data*/
 
                 var pokemonName = pokemonNames[i];
                 const res = await fetch("https://pokeapi.co/api/v2/pokemon/" + pokemonName)
@@ -133,7 +149,7 @@ async function showResults(searchres) {
 
 
                 document.querySelector("#pokemon-content").innerHTML += `
-        <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+        <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12" id="pokemon-container">
              <div class="pokemon-img-container">
                    <img src="${image}" alt="pokemon-image" class="pokpic">
              </div>
@@ -144,22 +160,54 @@ async function showResults(searchres) {
                       <hr>
                      <p><span class="about-heading">Ability:  </span><br>➢${abilities}</p>
                       <hr>
+                    <div id="viewMore">
+                      <button type="button" id="togglebtn" onclick="toggleMore(${data.id})"
+                   class="btn btn-outline-warning btn-lg togglebtn${data.id}">View More</button>
+                    </div>
+                    </div>
+                    <div class="toggleDetails${data.id}" style="display:none">
+                    <p><span class="about-heading">Height: </span><br>➢${height}cm</p>
+                      <hr>
+                    <p><span class="about-heading">Weight: </span><br>➢${weight}Kg</p>
+                      <hr>
                      <p><span class="about-heading">Moves:  </span><br>➢${moveList}</p>
                       <hr>
-                     <p><span class="about-heading">Height: </span><br>➢ ${height} cm</p>
-                      <hr>
-                    <p><span class="about-heading">Weight: </span><br>➢ ${weight} kg</p>
 
-                  </div>
+                     </div>
 
-           </div>
-            `
+
+        </div>
+
+        `
+
             }
-        }
-        if (nores.innerText = "No results found.")
+
+
+    }
+    if (nores.innerText = "No results found.")
         nores.innerText = "";
-        
+
     }
 
+
+
+}
+
+function toggleMore(id)
+{
+      var details=document.querySelector(`.toggleDetails${id}`)
+       details.classList.add("toggle")
+    var btn = document.querySelector(`.togglebtn${id}`);
+    if (details.style.display == "none")
+    {
+        details.style.display = "block";
+        btn.innerText="View Less"
+
+    }
+    else
+    {
+        details.style.display = "none";
+        btn.innerText = "View More";
+    }
 
 }
