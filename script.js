@@ -5,7 +5,7 @@ document.body.innerHTML = `<div class="container">
         <i class="gg-pokemon"></i>
     </div>
     <div class="col-md-8">
-        <h1 class="title"></i>Pokémon Database</h1>
+        <a onClick="window.location.reload()"><h1 class="title">Pokémon Database</h1></a>
 
     </div>
           <div class="col-md-4">
@@ -14,9 +14,12 @@ document.body.innerHTML = `<div class="container">
 
               <input id="search" type="search" placeholder="Enter a name">
 
-<button type="button" onclick="showResults(document.getElementById('search').value)" class="btn btn-outline-warning btn-lg">Search</button>
+            <button id="srchbtn" type="button" onclick="showResults(document.getElementById('search').value)" class="btn btn-outline-warning btn-lg">Search</button>
           </div>
-<div id="result"></div>
+<div id="getDataAgain">
+
+
+        </div>
     </div>
 </div>
 </div>
@@ -70,7 +73,6 @@ async function getData(value) {
                       <hr>
                     <p><span class="about-heading">Weight: </span><br>➢${weight}Kg</p>
                   </div>
-
         </div>
         `
 
@@ -92,10 +94,11 @@ async function showResults(searchres) {
         pokemonNames.push(data.name)
     }
     var lowerCaseSearchRes = searchres.toLowerCase();  //lowercasing the input data for fetching purpose
-  
+
 
     if (searchres === "")
         alert("No results found");
+
     else {
         document.querySelector("#pokemon-content").innerHTML = ``;
         for (var i = 0; i < pokemonNames.length; i++) {
@@ -103,7 +106,7 @@ async function showResults(searchres) {
                                                          if its true,it will get the relevant data*/
 
                 var pokemonName = pokemonNames[i];
-                const res = await fetch("https://pokeapi.co/api/v2/pokemon/" +pokemonName)
+                const res = await fetch("https://pokeapi.co/api/v2/pokemon/" + pokemonName)
                 const data = await res.json();
 
                 const abilities = data.abilities.map((list) => list.ability.name).join("\t\t\t➢")
@@ -129,17 +132,24 @@ async function showResults(searchres) {
                     <br>
                     <p><span class="about-heading">Types:  </span><br>➢${typeArr}</p>
                       <hr>
-                     <p><span class="about-heading">Ability:  </span><br>➢${abilities}</p>
+                     <p><span class="about-heading">Ability:  </span><br>➢<li>${abilities}</li></p>
                       <hr>
                      <p><span class="about-heading">Moves:  </span><br>➢${moveList}</p>
                       <hr>
                      <p><span class="about-heading">Height: </span><br>➢ ${height} cm</p>
                       <hr>
                     <p><span class="about-heading">Weight: </span><br>➢ ${weight} kg</p>
+
                   </div>
 
            </div>
             `
+            }
+            else {
+                const nores = document.createElement("h1");
+                nores.innerHTML="No results found.<br>Click the title to start seeing Pokemons again!"
+                document.getElementById('getDataAgain').append(nores)
+                break;
             }
         }
     }
