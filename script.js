@@ -26,6 +26,8 @@ document.body.innerHTML = `<div class="container">
     </div>
 </div>`
 
+
+
 //to Get all the data with the help of FETCH and perform DOM operation
 async function getData(value) {
     var noOfPokemon = value;
@@ -73,6 +75,8 @@ async function getData(value) {
 
         </div>
         `
+
+
     }
 
 
@@ -82,24 +86,38 @@ getData(61);
 
 //To fetch a particular search result
 async function showResults(searchres) {
-    var lowerCaseName = searchres.toLowerCase();
+    const pokemonNames = [];
+    for (var id = 1; id < 61; id++) {
 
-    const res = await fetch("https://pokeapi.co/api/v2/pokemon/" + lowerCaseName)
-    const data = await res.json();
+        const response = await fetch("https://pokeapi.co/api/v2/pokemon/" + id)
+        const data = await response.json();
+        pokemonNames.push(data.name)
+    }
 
-    const abilities = data.abilities.map((list) => list.ability.name).join("\t\t\t➢")
-    const titleCase = (string) =>
-        string.toLowerCase().split(" ").map((str) => str.charAt(0).toUpperCase() + str.slice(1))
-    const moves = data.moves.map((moveData) => moveData.move.name)
-    var moveList = moves.join("\t\t\t➢");
-    var image = data.sprites.other.dream_world.front_default;
-    var height = data.height * 10;
-    var weight = data.weight / 10;
-    var typeArr = data.types.map((data) => data.type.name);
-    typeArr = typeArr.join("\t\t\t➢")
-    document.querySelector("#pokemon-content").innerHTML = ``;
+    if (searchres === "")
+        alert("No results found");
+    else {
+        for (var i = 0; i < pokemonNames.length; i++) {
+            if (pokemonNames[i].includes(searchres)) {
 
-    document.querySelector("#pokemon-content").innerHTML = `
+                var lowerCaseName = pokemonNames[i].toLowerCase();
+                const res = await fetch("https://pokeapi.co/api/v2/pokemon/" +lowerCaseName)
+                const data = await res.json();
+
+                const abilities = data.abilities.map((list) => list.ability.name).join("\t\t\t➢")
+                const titleCase = (string) =>
+                    string.toLowerCase().split(" ").map((str) => str.charAt(0).toUpperCase() + str.slice(1))
+                const moves = data.moves.map((moveData) => moveData.move.name)
+                var moveList = moves.join("\t\t\t➢");
+                var image = data.sprites.other.dream_world.front_default;
+                var height = data.height * 10;
+                var weight = data.weight / 10;
+                var typeArr = data.types.map((data) => data.type.name);
+                typeArr = typeArr.join("\t\t\t➢");
+
+                document.querySelector("#pokemon-content").innerHTML = ``;
+
+                document.querySelector("#pokemon-content").innerHTML = `
         <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
              <div class="pokemon-img-container">
                    <img src="${image}" alt="pokemon-image" class="pokpic">
@@ -122,5 +140,8 @@ async function showResults(searchres) {
 
         </div>
         `
+            }
+        }
+    }
 
 }
