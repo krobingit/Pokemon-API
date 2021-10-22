@@ -109,7 +109,7 @@ async function showResults(searchres) {
         const data = await response.json();
         pokemonNames.push(data.name)
     }
-    var lowerCaseSearchRes = searchres.toLowerCase();  //lowercasing the input data for fetching purpose
+    var lowerCaseSearchRes = searchres.trim().toLowerCase();  //lowercasing the input data for fetching purpose
 
 
     if (searchres === "")
