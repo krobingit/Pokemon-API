@@ -4,11 +4,12 @@ document.body.innerHTML = `<div class="container">
     <div class="col-md-12">
         <i class="gg-pokemon"></i>
     </div>
-    <div class="col-md-8">
+    <div class="col-md-9" id="header-img-title">
+        <img alt="pikachu"src="https://c.tenor.com/5MEXa0INxSUAAAAi/pikachu-pokemon.gif" class="header-img">
         <a onClick="window.location.reload()"><h1 class="title">Pokémon Database</h1></a>
 
     </div>
-          <div class="col-md-4">
+          <div class="col-md-3">
             <div class="input-container">
              <label for="search">Search Pokemon</label>
 
@@ -24,6 +25,7 @@ document.body.innerHTML = `<div class="container">
     </div>
 </div>
 </div>
+
 <div class="container">
    <div class="row" id="pokemon-content">
 
@@ -71,6 +73,7 @@ async function getData(value) {
                     <div id="viewMore">
                       <button type="button" id="togglebtn" onclick="toggleMore(${id})"
                    class="btn btn-outline-warning btn-lg togglebtn${id}">View More 🡫</button>
+
                     </div>
                     </div>
                     <div class="toggleDetails${id}" style="display:none">
@@ -94,7 +97,7 @@ async function getData(value) {
 
 }
 
-getData(61);
+getData(100);
 
 const nores = document.createElement("h1");   //creating element to display no-result message
 nores.className="noresmsg"
@@ -103,7 +106,7 @@ nores.className="noresmsg"
 //To fetch a particular search result
 async function showResults(searchres) {
     const pokemonNames = [];
-    for (var id = 1; id < 61; id++) {
+    for (var id = 1; id < 100; id++) {
 
         const response = await fetch("https://pokeapi.co/api/v2/pokemon/" + id)
         const data = await response.json();
