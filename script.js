@@ -70,7 +70,7 @@ async function getData(value) {
                       <hr>
                     <div id="viewMore">
                       <button type="button" id="togglebtn" onclick="toggleMore(${id})"
-                   class="btn btn-outline-warning btn-lg togglebtn${id}">View More 🡫</button>
+                   class="btn btn-outline-warning btn-lg togglebtn${id}">View More 🡳</button>
                     </div>
                     </div>
                     <div class="toggleDetails${id}" style="display:none">
@@ -201,13 +201,13 @@ function toggleMore(id)
     if (details.style.display == "none")
     {
         details.style.display = "block";
-        btn.innerText="View Less 🡡"
+        btn.innerText="View Less 🡱"
 
     }
     else
     {
         details.style.display = "none";
-        btn.innerText = "View More 🡫";
+        btn.innerText = "View More 🡳";
     }
 
 }
