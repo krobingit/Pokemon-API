@@ -10,12 +10,19 @@ backdrop-filter:brightness(0.3);
 }
 
 #header-row>*{
-    margin-top: 2rem;
+    margin-top: 1.5rem;
 }
 
 .pokpic{
     object-fit: cover;
     height:22.5rem;
+}
+
+.header-img{
+width:9rem;
+height: 9rem;
+margin-right:3rem;
+
 }
 .title{
 
@@ -26,6 +33,9 @@ letter-spacing: 5px;
 font-family: 'Otomanopee One', sans-serif;
 position: relative;
 cursor: pointer;
+display: inline-block;
+margin-left: 2rem;
+margin-top: 1.5rem;
 
 }
 .title:hover{
@@ -59,7 +69,7 @@ margin-top:2rem;
 
 }
 #pokemon-content{
-    margin-top: 5rem;
+    margin: 5rem 5rem 0 0;
     color:white;
  font-family: 'Proza Libre', sans-serif;
     gap:9.5rem;
@@ -98,7 +108,7 @@ cursor: pointer;
 margin:10px 10px 10px 4px;
 min-width:28rem;
 word-spacing: 2rem;
-height:37rem;
+height:38rem;
 
 }
 
@@ -125,7 +135,7 @@ overflow-x: hidden;
 .toggle::-webkit-scrollbar-track
 {
 	box-shadow: inset 0 0 6px rgba(0,0,0,0.9);
-	border-radius: 13dpx;
+
 	background-color: beige;
 }
 
@@ -208,5 +218,22 @@ font-size: 1.6rem;
    display: flex;
    justify-content: space-evenly;
 }
+.header-img{
+margin-right: 0;
+}
 
+}
+
+@media (max-width:66rem)
+{
+#pokemon-content{
+margin-right: 4rem;
+margin-left: 2.2rem;
+
+}
+
+}
+
+#header-img-title{
+display: flex;
 }
